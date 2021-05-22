@@ -27,6 +27,7 @@ class dumpDataInPropertyImages extends Seeder
                 'updated_at'    => $detail->created_at
              ];
         }
+		Property_images::insert($images);
         
         // dump data in property_images table using insert batch
         
