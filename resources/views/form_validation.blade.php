@@ -15,14 +15,19 @@
     </head>
     <body>
         <div class="container">
-            <form>
+            <form action="{{route('save.properties')}}" method="POST">
                 <h2>Form Validation</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="full_name">Full Name</label>
-                            <input type="text" class="form-control" placeholder="" id="full_name" name="full_name">
+                            <input type="text" class="form-control" placeholder="" id="full_name" name="full_name" value="{{old('full_name')}}">
                         </div>
+						@if ($errors->has('full_name'))
+							<span class="text-danger">
+								<strong>{{ $errors->first('full_name') }}</strong>
+							</span>
+						@endif
                     </div>
                 </div>
 
@@ -30,8 +35,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="phone_number">Phone Number</label>
-                            <input type="text" class="form-control" placeholder="" id="phone_number" name="phone_number">
+                            <input type="text" class="form-control" placeholder="" id="phone_number" name="phone_number" value="{{old('phone_number')}}">
                         </div>
+						@if ($errors->has('phone_number'))
+							<span class="text-danger">
+								<strong>{{ $errors->first('phone_number') }}</strong>
+							</span>
+						@endif
                     </div>
                 </div>
                 
@@ -39,18 +49,29 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="">
+                            <input type="email" class="form-control" id="email" placeholder="" value="{{old('email')}}">
                         </div>
+						@if ($errors->has('email'))
+							<span class="text-danger">
+								<strong>{{ $errors->first('email') }}</strong>
+							</span>
+						@endif
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="dob">Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" placeholder="" name="dob">
+                            <input type="date" class="form-control" id="dob" placeholder="" name="dob" value="{{old('dob')}}">
                         </div>
+						@if ($errors->has('dob'))
+							<span class="text-danger">
+								<strong>{{ $errors->first('dob') }}</strong>
+							</span>
+						@endif
                     </div>
                 </div>
+				{{ csrf_field() }}
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

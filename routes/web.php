@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('/property-details', 'Property_details@index'); 
 Route::get('/form-validation', 'Property_details@form_validation'); 
 Route::get('/properties', 'AjaxController@viewPropertyForDatatable')->name("ajax.properties");
+Route::post('/saveProperties', 'Property_details@savePropertyDetail')->name("save.properties");
